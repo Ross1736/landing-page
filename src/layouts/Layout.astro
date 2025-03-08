@@ -1,3 +1,12 @@
+---
+import "@fontsource-variable/quicksand";
+
+import Menu from "../components/Menu.astro";
+import Footer from "../components/Footer.astro";
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -5,18 +14,65 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{title}</title>
+
+    <style is:global>
+      :root {
+        --font-primary: "Quicksand Variable";
+
+        --color-white: #ffffff;
+        --color-black: #000000;
+
+        --color-0: #eff6ff;
+        --color-1: #dbeafe;
+        --color-2: #bfdbfe;
+        --color-3: #93c5fd;
+        --color-4: #60a5fa;
+        --color-5: #3b82f6;
+        --color-6: #2563eb;
+        --color-7: #1d4ed8;
+        --color-8: #1e40af;
+        --color-9: #1e3a8a;
+        --color-10: #172554;
+
+        --color-bg: #171717;
+        --color-bg-img: rgba(0, 0, 0, 0.1);
+        --bg-modal: rgba(0, 0, 0, 0.5);
+        --shadow: 0 5px 15px rgba(1, 10, 5, 0.7);
+        --shadow-boton: 0 0 15px rgba(0, 0, 0, 0.3);
+        --shadow-texto: 0px 0px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
   </head>
   <body>
+    <Menu />
     <slot />
+    <Footer />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
